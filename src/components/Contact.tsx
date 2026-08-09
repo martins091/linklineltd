@@ -36,7 +36,7 @@ export function Contact() {
           <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight text-paper-50 sm:text-4xl lg:text-5xl">
             Ready to put your team on one channel?
           </h2>
-          <p className="mt-4 text-brand-100/85 sm:text-lg">
+          <p className="mt-4 text-paper-50 sm:text-lg">
             Speak with a communication representative and get a quotation built around your
             team size, coverage area and budget.
           </p>
