@@ -57,17 +57,7 @@
   --font-display: var(--font-archivo);
   --font-sans: var(--font-inter);
 
-  --animate-marquee: marquee 38s linear infinite;
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 @keyframes fade-up {

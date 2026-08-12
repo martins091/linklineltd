@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, ChevronDown, PhoneCall } from "lucide-react";
+import { ArrowRight, PhoneCall } from "lucide-react";
 import { heroSlides, site } from "@/lib/site-data";
 
 const SLIDE_MS = 6500;
@@ -73,13 +74,13 @@ export function Hero() {
         </AnimatePresence>
 
         <div className="mt-9 flex flex-wrap items-center gap-4">
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="group inline-flex items-center gap-2 rounded-full bg-brand-700 px-6 py-3.5 text-sm font-bold text-paper-50 shadow-xl shadow-brand-900/40 transition-transform hover:scale-[1.03]"
           >
             Request a Quote
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-          </a>
+          </Link>
           <a
             href={`tel:${site.phonePrimaryRaw}`}
             className="inline-flex items-center gap-2 rounded-full border border-paper-50/30 bg-paper-50/5 px-6 py-3.5 text-sm font-bold text-paper-50 backdrop-blur transition-colors hover:bg-paper-50/15"
@@ -88,23 +89,17 @@ export function Hero() {
           </a>
         </div>
 
-        <div className="mt-12 flex items-center gap-6">
-          <div className="flex gap-2">
-            {heroSlides.map((s, i) => (
-              <button
-                key={s.heading}
-                aria-label={`Show slide ${i + 1}`}
-                onClick={() => setIndex(i)}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === index ? "w-8 bg-gold-400" : "w-3 bg-paper-50/30"
-                }`}
-              />
-            ))}
-          </div>
-          <div className="hidden items-center gap-2 text-xs font-medium uppercase tracking-widest text-paper-50/50 sm:flex">
-            <ChevronDown size={14} className="animate-bounce" />
-            Scroll
-          </div>
+        <div className="mt-12 flex gap-2">
+          {heroSlides.map((s, i) => (
+            <button
+              key={s.heading}
+              aria-label={`Show slide ${i + 1}`}
+              onClick={() => setIndex(i)}
+              className={`h-1.5 rounded-full transition-all ${
+                i === index ? "w-8 bg-gold-400" : "w-3 bg-paper-50/30"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

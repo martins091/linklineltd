@@ -22,13 +22,11 @@ export const site = {
 } as const;
 
 export const nav = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Products", href: "#products" },
-  { label: "Industries", href: "#industries" },
-  { label: "Coverage", href: "#coverage" },
-  { label: "Why Linkline", href: "#why-us" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services & Products", href: "/services", mega: "services" },
+  { label: "Industries", href: "/industries", mega: "industries" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const about = {
@@ -78,22 +76,6 @@ export const heroSlides = [
     heading: "Six corridors of coverage across commercial Lagos.",
     body: "From Lagos Island to Epe, Ikorodu, Otta, Sagamu and 60km out to sea — your team stays connected.",
   },
-] as const;
-
-export const trustStrip = [
-  "Manufacturing",
-  "Construction",
-  "Security",
-  "Government",
-  "Aviation",
-  "Transport",
-  "Cargo & Freight Forwarding",
-  "Taxi & Car Hire Fleet",
-  "Travels & Tours",
-  "Logistics",
-  "Hospitality",
-  "Naval & Port Waiting Areas",
-  "Oil & Gas",
 ] as const;
 
 export type ServicePanel = {
@@ -362,18 +344,18 @@ export type SearchEntry = {
   href: string;
 };
 
-/** Flat, searchable index of everything on the site — powers the header search box. */
+/** Flat, searchable index of the site's pages and products — powers the header search box. */
 export const searchIndex: SearchEntry[] = [
-  { label: "Home", group: "Page", href: "/#top" },
-  { label: "About Linkline", group: "Page", href: "/#about" },
-  { label: "Why Linkline", group: "Page", href: "/#why-us" },
-  { label: "Coverage map", group: "Page", href: "/#coverage" },
-  { label: "FAQ", group: "Page", href: "/#faq" },
-  { label: "Contact & quotes", group: "Page", href: "/#contact" },
-  ...services.map((s) => ({ label: s.title, group: "Service", href: "/#services" })),
+  { label: "Home", group: "Page", href: "/" },
+  { label: "Services & Products", group: "Page", href: "/services" },
+  { label: "Industries & Coverage", group: "Page", href: "/industries" },
+  { label: "About Linkline", group: "Page", href: "/about" },
+  { label: "Contact & quotes", group: "Page", href: "/contact" },
+  { label: "FAQ", group: "Page", href: "/contact#faq" },
+  ...services.map((s) => ({ label: s.title, group: "Service", href: "/services#services" })),
   ...products.map((p) => ({ label: p.name, group: `Product · ${p.category}`, href: `/products/${p.slug}` })),
-  ...industries.map((i) => ({ label: i.name, group: "Industry", href: "/#industries" })),
-  ...industriesExtended.map((name) => ({ label: name, group: "Industry", href: "/#industries" })),
-  ...coverage.map((c) => ({ label: c.route, group: "Coverage", href: "/#coverage" })),
-  ...faqs.map((f) => ({ label: f.q, group: "FAQ", href: "/#faq" })),
+  ...industries.map((i) => ({ label: i.name, group: "Industry", href: "/industries#industries" })),
+  ...industriesExtended.map((name) => ({ label: name, group: "Industry", href: "/industries#industries" })),
+  ...coverage.map((c) => ({ label: c.route, group: "Coverage", href: "/industries#coverage" })),
 ];
+
