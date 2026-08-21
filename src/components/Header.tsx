@@ -305,13 +305,13 @@ export function Header() {
   const closeDropdown = () => setOpenDropdown(null);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-20 border-b border-ink-950/8 bg-paper-50/95 backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-50 h-20 bg-paper-50">
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
         <Link href="/" className="shrink-0">
           <Logo variant="dark" />
         </Link>
 
-        <nav ref={navRef} className="hidden items-center gap-1 lg:flex">
+        <nav ref={navRef} className="hidden items-center lg:flex">
           {nav.map((item) => {
             const mega = "mega" in item ? item.mega : undefined;
             return (
@@ -319,21 +319,21 @@ export function Header() {
                 {mega ? (
                   <button
                     onClick={() => setOpenDropdown((v) => (v === item.label ? null : item.label))}
-                    className={`flex items-center gap-1 rounded-full px-3 py-2 text-sm font-semibold transition-colors ${
+                    className={`flex items-center gap-1 px-2.5 py-2 text-sm font-normal transition-colors ${
                       isActive(item.href) ? "text-brand-700" : "text-ink-800 hover:text-brand-700"
                     }`}
                   >
                     {item.label}
                     <ChevronDown
                       size={13}
-                      strokeWidth={2.5}
+                      strokeWidth={2}
                       className={`transition-transform ${openDropdown === item.label ? "rotate-180" : ""}`}
                     />
                   </button>
                 ) : (
                   <Link
                     href={item.href}
-                    className={`block rounded-full px-3 py-2 text-sm font-semibold transition-colors ${
+                    className={`block px-2.5 py-2 text-sm font-normal transition-colors ${
                       isActive(item.href) ? "text-brand-700" : "text-ink-800 hover:text-brand-700"
                     }`}
                   >
@@ -342,7 +342,7 @@ export function Header() {
                 )}
 
                 {mega && openDropdown === item.label && (
-                  <div className="absolute left-0 top-[calc(100%+10px)] z-50 w-[720px] overflow-hidden rounded-2xl border border-ink-950/8 bg-white shadow-2xl shadow-ink-950/15">
+                  <div className="absolute left-0 top-[calc(100%+10px)] z-50 w-[720px] overflow-hidden border border-ink-950/8 bg-white shadow-lg shadow-ink-950/10">
                     {mega === "services" ? (
                       <ServicesMega onNavigate={closeDropdown} />
                     ) : (
@@ -359,13 +359,14 @@ export function Header() {
           <SearchBox />
           <a
             href={`tel:${site.phonePrimaryRaw}`}
-            className="hidden items-center gap-2 text-sm font-semibold text-ink-800 xl:flex"
+            className="hidden items-center gap-2 text-sm font-normal text-ink-800 xl:flex"
           >
             <Phone size={15} /> {site.phonePrimary}
           </a>
+          <span className="hidden h-5 w-px bg-ink-950/12 xl:block" />
           <Link
             href="/contact"
-            className="shrink-0 rounded-full bg-brand-700 px-5 py-2.5 text-sm font-bold text-paper-50 shadow-lg shadow-brand-700/25 transition-transform hover:scale-[1.03]"
+            className="shrink-0 rounded-full bg-ink-950 px-5 py-2.5 text-sm font-normal text-paper-50 transition-colors hover:bg-brand-700"
           >
             Get a Quote
           </Link>

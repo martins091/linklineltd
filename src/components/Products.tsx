@@ -29,12 +29,12 @@ export function Products() {
               href={`/products/${p.slug}`}
               className="group w-[300px] shrink-0 snap-start rounded-2xl bg-paper-50 p-5 transition-transform duration-300 hover:-translate-y-1.5 sm:w-auto"
             >
-              <div className="relative aspect-square overflow-hidden rounded-xl bg-paper-100">
+              <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
                 <Image
                   src={p.image}
                   alt={p.name}
                   fill
-                  className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 300px, (max-width: 1024px) 45vw, 24vw"
                 />
                 <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-brand-700 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-paper-50">

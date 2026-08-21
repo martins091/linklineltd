@@ -32,7 +32,7 @@ export function Logo({ variant = "dark", showWordmark = true, className = "" }: 
   if (variant === "light") {
     return (
       <span
-        className={`inline-flex items-center rounded-xl bg-paper-50 px-3.5 py-2 shadow-sm ${className}`}
+        className={`inline-flex w-fit items-center rounded-xl bg-paper-50 px-3.5 py-2 ${className}`}
       >
         {img}
       </span>

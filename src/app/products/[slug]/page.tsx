@@ -141,12 +141,12 @@ export default async function ProductPage({
                 href={`/products/${p.slug}`}
                 className="group rounded-2xl border border-ink-950/8 bg-white p-5 transition-transform duration-300 hover:-translate-y-1.5"
               >
-                <div className="relative aspect-square overflow-hidden rounded-xl bg-paper-100">
+                <div className="relative aspect-square overflow-hidden rounded-xl bg-white">
                   <Image
                     src={p.image}
                     alt={p.name}
                     fill
-                    className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 90vw, 22vw"
                   />
                 </div>

@@ -54,30 +54,6 @@ export const about = {
   ],
 } as const;
 
-export const heroSlides = [
-  {
-    image: "/images/hero-crane.jpg",
-    focal: "object-[70%_20%]",
-    eyebrow: "Public Access Mobile Radio",
-    heading: "Every voice on site, one channel away.",
-    body: "Fully managed two-way radio infrastructure for Lagos operations that can't afford dropped calls.",
-  },
-  {
-    image: "/images/hero-construction.png",
-    focal: "object-[60%_30%]",
-    eyebrow: "Just Plug & Play",
-    heading: "No license. No maintenance. No upfront capital.",
-    body: "Outsource your radio network to the operators who've run Lagos-wide PAMR since day one.",
-  },
-  {
-    image: "/images/hero-coverage.jpg",
-    focal: "object-[50%_30%]",
-    eyebrow: "Wide-Area Coverage",
-    heading: "Six corridors of coverage across commercial Lagos.",
-    body: "From Lagos Island to Epe, Ikorodu, Otta, Sagamu and 60km out to sea — your team stays connected.",
-  },
-] as const;
-
 export type ServicePanel = {
   kicker: string;
   title: string;
@@ -337,6 +313,46 @@ export const faqs = [
     a: "Manufacturing, construction, security, government, aviation, transport, cargo & freight forwarding, taxi & car hire fleets, travel & tours, logistics, hospitality, naval & port operations, oil & gas, and more — see the full list in the Industries section.",
   },
 ] as const;
+
+export type NewsItem = {
+  date: string;
+  readTime: string;
+  title: string;
+  excerpt: string;
+  href: string;
+  tag: string;
+};
+
+/** Placeholder company updates in the "Latest news" shape — swap for real posts as they're published. */
+export const newsItems: NewsItem[] = [
+  {
+    date: "August 2026",
+    readTime: "2 min read",
+    tag: "Coverage",
+    title: "Sixth coverage corridor now live out to Badagry",
+    excerpt:
+      "Our rooftop repeater network now reaches Alaba, Agbara Estate and Badagry Town — extending group-channel access further west across commercial Lagos.",
+    href: "/industries#coverage",
+  },
+  {
+    date: "July 2026",
+    readTime: "3 min read",
+    tag: "Company Update",
+    title: "Why more Lagos fleets are switching from cellular to PAMR",
+    excerpt:
+      "Dispatch-to-driver lag and per-minute billing are pushing transport and logistics operators toward managed two-way radio. Here's what's driving the shift.",
+    href: "/services#services",
+  },
+  {
+    date: "June 2026",
+    readTime: "2 min read",
+    tag: "Product",
+    title: "Digital-ready handhelds added to the rental fleet",
+    excerpt:
+      "IP-rated, digital-ready Motorola and Hytera handsets are now available on short-term rental for events and project teams planning ahead for a digital upgrade.",
+    href: "/services#products",
+  },
+];
 
 export type SearchEntry = {
   label: string;

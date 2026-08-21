@@ -1,26 +1,6 @@
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
+import { socialLinks } from "./SocialIcons";
 import { site } from "@/lib/site-data";
-
-const cards = [
-  {
-    icon: Phone,
-    title: "Call us",
-    lines: [site.phonePrimary, site.phoneSecondary],
-    hrefs: [`tel:${site.phonePrimaryRaw}`, `tel:${site.phoneSecondaryRaw}`],
-  },
-  {
-    icon: Mail,
-    title: "Email us",
-    lines: [site.emailPrimary, site.emailSecondary],
-    hrefs: [`mailto:${site.emailPrimary}`, `mailto:${site.emailSecondary}`],
-  },
-  {
-    icon: MapPin,
-    title: "Visit us",
-    lines: [site.address.street, site.address.city],
-    hrefs: [],
-  },
-];
 
 export function Contact() {
   return (
@@ -57,40 +37,21 @@ export function Contact() {
           </a>
         </div>
 
-        <div className="mt-16 grid gap-4 sm:grid-cols-3">
-          {cards.map((c) => (
-            <div
-              key={c.title}
-              className="rounded-2xl border border-paper-50/15 bg-white/5 p-5 backdrop-blur-sm"
-            >
-              <c.icon size={20} className="text-gold-300" />
-              <h3 className="mt-3 font-display text-sm font-bold text-paper-50">{c.title}</h3>
-              <div className="mt-1.5 space-y-0.5">
-                {c.lines.map((line, i) =>
-                  c.hrefs[i] ? (
-                    <a
-                      key={line}
-                      href={c.hrefs[i]}
-                      className="block text-sm text-paper-50/75 hover:text-paper-50"
-                    >
-                      {line}
-                    </a>
-                  ) : (
-                    <p key={line} className="text-sm text-paper-50/75">
-                      {line}
-                    </p>
-                  )
-                )}
-              </div>
-            </div>
-          ))}
-          <div className="rounded-2xl border border-paper-50/15 bg-white/5 p-5 backdrop-blur-sm sm:col-span-3">
-            <div className="flex items-center gap-2">
-              <Clock size={16} className="text-gold-300" />
-              <p className="text-sm font-semibold text-paper-50">{site.hours}</p>
-              <span className="text-paper-50/40">·</span>
-              <p className="text-sm text-paper-50/75">{site.address.postal}</p>
-            </div>
+        <div className="mt-14 flex flex-col items-start gap-4 border-t border-paper-50/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm font-bold uppercase tracking-wide text-paper-50/80">
+            Stay connected
+          </p>
+          <div className="flex items-center gap-3">
+            {socialLinks.map(({ icon: Icon, label, href }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-paper-50/25 text-paper-50/80 transition-colors hover:border-paper-50/60 hover:text-paper-50"
+              >
+                <Icon />
+              </a>
+            ))}
           </div>
         </div>
       </div>
